@@ -34,7 +34,8 @@ app.use('/api/assignments', assignmentRoute);
 
 // Connect to MongoDB and start the server
 connectDB().then(() => {
-    app.listen(4000, () => {
+    app.listen(4000, (req, res) => {
+        res.send("server start")
         console.log('Server is running on port 4000');
     })
 }).catch((err) => {
