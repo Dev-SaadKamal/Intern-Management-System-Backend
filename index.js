@@ -20,7 +20,7 @@ console.log("file started")
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: "https://intern-management-system-eight.vercel.app/",
+    origin: "https://intern-management-system-eight.vercel.app",
     credentials: true
 }));
 app.use(cookieParser());
