@@ -27,8 +27,8 @@ const registerUser = async (req, res) => {
         const token = generateToken(user);
         res.cookie('token', token, {
             httpOnly: true,
-            secure: false, // true in production (HTTPS)
-            sameSite: "lax"
+            secure: true,
+            sameSite: "none"
         });
         res.status(201).json(ResObj(true, 'User registered successfully', { token }));
     } catch (error) {
@@ -54,8 +54,8 @@ const loginUser = async (req, res) => {
         const token = generateToken(user);
         res.cookie('token', token, {
             httpOnly: true,
-            secure: false, // true in production (HTTPS)
-            sameSite: "lax"
+            secure: true,
+            sameSite: "none"
         });
         res.status(200).json(ResObj(true, 'User logged in successfully', { User: { id: user._id, name: user.name, email: user.email, role: user.role }, token }));
     } catch (error) {
